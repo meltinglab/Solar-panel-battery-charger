@@ -150,6 +150,22 @@ assignin('base','CX',CX)
 assignin('base','C',C)
 
 end
+%% Plant selection
+
+%We add a delay and discretize to work with the plant
+
+%Constant voltaje
+Gvcsysret=tf(eval(cnumvc),eval(cdenvc),'InputDelay',Ts);
+Gvcsyszoh=c2d(Gvcsysret,1/f,'zoh')
+
+%Constant current
+Giocsysret=tf(eval(cnumioc),eval(cdenioc),'InputDelay',Ts);
+Giocsyszoh=c2d(Giocsysret,1/f,'zoh')
+
+%%
+%Time delay to limit duty cycle
+LimH=0.95;
+Td=(LimH)*Ts;
 %% Transfer fucntions replacing the selected components
 
 disp('Transfer fucntions with components')

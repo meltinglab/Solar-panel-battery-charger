@@ -166,6 +166,103 @@ Giocsyszoh=c2d(Giocsysret,1/f,'zoh')
 %Time delay to limit duty cycle
 LimH=0.95;
 Td=(LimH)*Ts;
+%%
+%Analysis of stability varying components de estabilidad variando los parámetros de los componentes
+syms s
+invocomp();
+
+%We loop all the combinations of plants with errors of -30%,0% and +30%
+var=1;
+porc=0.3;
+
+for(a=1:1:3)
+    Laux=L+L*(a-2)*porc;
+
+    for(b=1:1:3)
+        Caux=C+C*(b-2)*porc;
+        
+            for(c=1:1:3)
+                Cinaux=CIN+CIN*(c-2)*porc;               
+                    
+                    for(d=1:1:3)
+                        VPaux=VP+VP*(d-2)*porc;
+                        
+                        for(e=1:1:3)       
+                            VOaux=VO+VO*(e-2)*porc;
+
+
+
+                            %Variation of parameters
+                            L=Laux;
+                            C=Caux;
+                            CIN=Cinaux;
+                            VO=VOaux;
+                            VS=VO-1*R;
+                            VP=VPaux;
+                            VIN=VP-I*RP;
+                            H=(VO+VD)/(VIN+VO+VD);
+                            
+                            %Creation of plant with the modified components 
+                            
+                            %(Constant Voltage)
+                            sysv=tf(eval(cnumvc),eval(cdenvc),'InputDelay',Ts);
+                            syszohv=c2d(sysv,1/f,'zoh');
+                            
+                            %(Constant current)
+                            sysi=tf(eval(cnumioc),eval(cdenioc),'InputDelay',Ts);
+                            syszohi=c2d(sysi,1/f,'zoh');
+                            
+                            
+                            
+                            %The various plants are stored in the matrix  
+                            
+                            %(cons voltage)
+                            PLANTASv(var)=syszohv;
+                            %(cons current)
+                            PLANTASi(var)=syszohi;
+                            
+                            
+                            %We record the margin of gain, phase and frequency 
+                            %(cons voltage)
+                            [Gmv(var),Pmv(var),Wcgv(var),Wcpv(var)] = margin(syszohv);
+                            Gmv(var)=20*log10(Gmv(var));
+                            
+                            %(cons current)
+                            [Gmi(var),Pmi(var),Wcgi(var),Wcpi(var)] = margin(syszohi);
+                            Gmi(var)=20*log10(Gmi(var));
+                            
+                            
+                            
+                            %We increment the counter and return to initial components
+                            var=var+1; 
+                            invocomp();
+                        end
+                    
+                end
+            end
+    end
+end
+
+%We find the minimum margin of phase and gain
+
+%Volt cons.
+[minGmv,minGmvarv]=min(Gmv);
+[minPmv,minPmvarv]=min(Pmv);
+
+%Curr cons.
+[minGmi,minGmvari]=min(Gmi);
+[minPmi,minPmvari]=min(Pmi);
+
+
+
+
+%For the plants with wors margin of gain we obtain (gain)
+sysacompensargainv=PLANTASv(minGmvarv);
+sysacompensargaini=PLANTASi(minGmvari);
+
+%For the plants with wors margin of gain we obtain (phase)
+sysacompensarfasev=PLANTASv(minPmvarv);
+sysacompensarfasei=PLANTASi(minPmvari);
 %% Transfer fucntions replacing the selected components
 
 disp('Transfer fucntions with components')

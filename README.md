@@ -24,7 +24,7 @@ Once your plant model has been verified using PIL, now you can replace the plant
 
 As an added step, you can have a simulated plant model in a real-time PC before interfacing with the actual hardware, for example, in Speedgoat where you will run the plant model in real-time but have proper Analog/CAN communications between the Plant and Controller which you will be using while interfacing with the plant hardware. This step is known as HIL testing and the controller is typically on a production board/controller. This will help you with identifying issues related to the communication channels for example attenuation and delay which are introduced by an analog channel and can make the controller unstable if they are not captured in the simulation. This step is typically done to test safety critical application e.g. air bag deployment.
 
-![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/v_model.jpg)
+![Image of V-Model](/images/v_model.jpg)
 
 
 
@@ -35,7 +35,7 @@ As an added step, you can have a simulated plant model in a real-time PC before 
 The energy that a panel can deliver depends on the photons that fall on the surface of the panel; These are absorbed and produce a flow of electrons when each photon delivers the energy it has. Solar panels are made up of multiple photovoltaic cells which transform energy from sunlight into electrical energy.
 These cells are capable of generating voltages, currents and power, which are determined by the level of radiation it receives in units of (W / m2) and temperature. The behavior of the photovoltaic effect that occurs in the panels is defined by the V ∗ I curves under different operating conditions. [1] [2] [3] [4]
 
-![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/solar_panel1.jpg)
+![Image of V-Model](/images/solar_panel1.png)
 
 
 
@@ -43,11 +43,11 @@ These cells are capable of generating voltages, currents and power, which are de
 
 The voltage input to our SEPIC circuit will be a 17.5V 20W solar panel. The specifications of this are seen below in Figure below:
 
-![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/solar_panel2.jpg)
+![Image of V-Model](/images/solar_panel2.png)
 
-![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/solar_panel3.jpg)
+![Image of V-Model](/images/solar_panel3.png)
 
-![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/solar_panel4.jpg)
+![Image of V-Model](/images/solar_panel4.png)
 
 
 
@@ -59,7 +59,7 @@ The Single-Ended Primary-Inductance Converter (SEPIC) is a DC-DC converter which
 
 The converter topology can be seen in figure below
 
-![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/SEPIC1.jpg)
+![Image of V-Model](/images/SEPIC1.png)
 
 
 
@@ -67,7 +67,7 @@ The converter topology can be seen in figure below
 
 Because the inductances in the SEPIC converter can be replaced by a coupled transformer to increase the efficiency and the available area on the printed circuit, we will use a transformer with a 1: 1 turn ratio whose model It is an ideal parallel transformer with a magnetizing inductance. Figure below nverter efficiency comparison with coupled and decoupled inductors Taking into account the above, our circuit is as follows:
 
-![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/SEPIC2.jpg)
+![Image of V-Model](/images/SEPIC2.png)
 
 
 
@@ -77,7 +77,7 @@ The switching will be done by a MOSFET transistor whose gate signal will control
 
 With the proposed modifications, the converter with which the project will be developed is the following:
 
-![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/SEPIC3.jpg)
+![Image of V-Model](/images/SEPIC3.png)
 
 
 

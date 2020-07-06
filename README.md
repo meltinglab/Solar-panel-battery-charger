@@ -24,8 +24,9 @@ Once your plant model has been verified using PIL, now you can replace the plant
 
 As an added step, you can have a simulated plant model in a real-time PC before interfacing with the actual hardware, for example, in Speedgoat where you will run the plant model in real-time but have proper Analog/CAN communications between the Plant and Controller which you will be using while interfacing with the plant hardware. This step is known as HIL testing and the controller is typically on a production board/controller. This will help you with identifying issues related to the communication channels for example attenuation and delay which are introduced by an analog channel and can make the controller unstable if they are not captured in the simulation. This step is typically done to test safety critical application e.g. air bag deployment.
 
-```
+```v_model.jpg
 ![Image of V-Model](/images/v_model.jpg)
+Format: ![Alt Text](url)
 ```
 
 

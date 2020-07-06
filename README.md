@@ -51,6 +51,40 @@ The voltage input to our SEPIC circuit will be a 17.5V 20W solar panel. The spec
 
 
 
+##### DC-DC SEPIC CONVERTER
+
+The Single-Ended Primary-Inductance Converter (SEPIC) is a DC-DC converter which delivers an output voltage greater than or equal to the input voltage. Its topology consists of two inductances, two capacitors, a diode and a switch whose duty cycle modifies the average output voltage, which we will demonstrate in a later analysis.
+
+
+
+The converter topology can be seen in figure below
+
+![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/SEPIC1.jpg)
+
+
+
+##### SEPIC Analysis
+
+Because the inductances in the SEPIC converter can be replaced by a coupled transformer to increase the efficiency and the available area on the printed circuit, we will use a transformer with a 1: 1 turn ratio whose model It is an ideal parallel transformer with a magnetizing inductance. Figure below nverter efficiency comparison with coupled and decoupled inductors Taking into account the above, our circuit is as follows:
+
+![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/SEPIC2.jpg)
+
+
+
+Because our goal is to power the drive with a solar panel, we will use a decoupling capacitor parallel to the input in order to decouple the panel impedance and thus model the input as a constant voltage source. For the load and input we will use the corresponding models of our project for a proper analysis: the load of the converter is a battery (voltage source in series with a resistor) and the input is a solar panel (voltage source in series with resistor). 
+
+The switching will be done by a MOSFET transistor whose gate signal will control its opening and closing.
+
+With the proposed modifications, the converter with which the project will be developed is the following:
+
+![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/SEPIC3.jpg)
+
+
+
+
+
+
+
 ##### Authors:
 
 - Armando

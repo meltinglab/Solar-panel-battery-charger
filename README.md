@@ -28,7 +28,26 @@ As an added step, you can have a simulated plant model in a real-time PC before 
 
 
 
+## Hardware
 
+##### Photovolatic Effect
+
+The energy that a panel can deliver depends on the photons that fall on the surface of the panel; These are absorbed and produce a flow of electrons when each photon delivers the energy it has. Solar panels are made up of multiple photovoltaic cells which transform energy from sunlight into electrical energy.
+These cells are capable of generating voltages, currents and power, which are determined by the level of radiation it receives in units of (W / m2) and temperature. The behavior of the photovoltaic effect that occurs in the panels is defined by the V ∗ I curves under different operating conditions. [1] [2] [3] [4]
+
+![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/solar_panel1.jpg)
+
+
+
+##### Solar Panel
+
+The voltage input to our SEPIC circuit will be a 17.5V 20W solar panel. The specifications of this are seen below in Figure below:
+
+![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/solar_panel2.jpg)
+
+![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/solar_panel3.jpg)
+
+![Image of V-Model](https://github.com/meltinglab/Solar-panel-battery-charger/blob/master/images/solar_panel4.jpg)
 
 
 

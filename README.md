@@ -166,6 +166,61 @@ In the table above, we can see the resolution of the measurement using precision
 
 
 
+## Control
+
+##### PROGRAMMED PEAK CURRENT CONTROL WITH COMPENSATION RAMP (PCPM):
+
+We  will use programmed current control due to greater stability and control of the plant.
+
+The block diagram in this figure describes the operation of the current control with compensation ramp, this controls the signal from the gate of the MOSFET, that is, our PWM; In this system each clock cycle, the output "Q" of the flip-flop is high until the reset "R" is activated in hTs, this happens when the input signal (current flowing through the inductance) is equal to value of the artificial ramp at that time. 
+
+![Image of V-Model](/images/ctrl1.png)
+
+![Image of V-Model](/images/ctrl2.png)
+
+
+
+This plot shows the artificial ramp
+
+![Image of V-Model](/images/ctrl3.png)
+
+
+
+And this plot shows the Inductance current behavior and compensation ramp
+
+![Image of V-Model](/images/ctrl4.png)
+
+
+
+## MPPT
+
+An MPPT, or maximum power point tracker is an electronic DC to DC converter that optimizes the match between the solar array (PV panels), and the battery bank or utility grid. To put it simply, they convert a higher voltage DC output from solar panels (and a few wind generators) down to the lower voltage needed to charge batteries.
+
+The major principle of MPPT is to extract the maximum available power from PV module by making them operate at the most efficient voltage (maximum power point). That is to say:
+
+MPPT checks output of PV module, compares it to battery voltage then fixes what is the best power that PV module can produce to charge the battery and converts it to the best voltage to get maximum current into battery. It can also supply power to a DC load, which is connected directly to the battery.
+
+MPPT is most effective under these conditions:
+
+* Cold weather, cloudy or hazy days: Normally, PV module works better at cold temperatures and MPPT is utilized to extract maximum power available from them.
+* When battery is deeply discharged: MPPT can extract more current and charge the battery if the state of charge in the battery is lowers.
+
+
+
+A MPPT solar charge controller is the charge controller embedded with MPPT algorithm to maximize the amount of current going into the battery from PV module.
+
+MPPT is DC to DC converter which operates by taking DC input from PV module, changing it to AC and converting it back to a different DC voltage and current to exactly match the PV module to the battery.
+
+In any applications which PV module is energy source, MPPT solar charge controller is used to correct for detecting the variations in the current-voltage characteristics of solar cell and shown by I-V curve.
+
+This controller is necessary for any solar power systems need to extract maximum power from PV module; it forces PV module to operate at voltage close to maximum power point to draw maximum available power.
+
+MPPT solar charge controller allows users to use PV module with a higher voltage output than operating voltage of battery system. For example, if PV module has to be placed far away from charge controller and battery, its wire size must be very large to reduce voltage drop. With a MPPT solar charge controller, users can wire PV module for 24 or 48 V (depending on charge controller and PV modules) and bring power into 12 or 24 V battery system. This means it reduces the wire size needed while retaining full output of PV module.
+
+MPPT solar charge controller reduces complexity of system while output of system is high efficiency. Additionally, it can be applied to use with more energy sources. Since PV output power is used to control DC-DC converter directly. Also, these controllers can be applied to other renewable energy sources such as small water turbines, wind-power turbines, etc.
+
+
+
 
 
 
@@ -177,4 +232,4 @@ In the table above, we can see the resolution of the measurement using precision
 - Armando
 - Hamed
 - Jaber
-- Omar
+- Omar Elgendy

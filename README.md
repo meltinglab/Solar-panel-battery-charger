@@ -221,15 +221,15 @@ MPPT solar charge controller reduces complexity of system while output of system
 
 
 
+-------------
 
-
-
+----
 
 
 
 ##### Authors:
 
-- Armando
-- Hamed
-- Jaber
-- Omar Elgendy
+- Armando Ruben Villar Tovar				877990
+- Hamed Shoushtaridehshal                   878009 
+- Jaber Nikpouri                                         878189
+- Omar Elgendy                                         877989

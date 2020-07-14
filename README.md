@@ -65,7 +65,7 @@ The converter topology can be seen in figure below
 
 ##### SEPIC Analysis
 
-Because the inductances in the SEPIC converter can be replaced by a coupled transformer to increase the efficiency and the available area on the printed circuit, we will use a transformer with a 1: 1 turn ratio whose model It is an ideal parallel transformer with a magnetizing inductance. Figure below nverter efficiency comparison with coupled and decoupled inductors Taking into account the above, our circuit is as follows:
+Because the inductances in the SEPIC converter can be replaced by a coupled transformer to increase the efficiency and the available area on the printed circuit, we will use a transformer with a 1: 1 turn ratio whose model It is an ideal parallel transformer with a magnetizing inductance. Figure below demonstrates efficiency comparison with coupled and decoupled inductors Taking into account the above, our circuit is as follows:
 
 ![Image of V-Model](/images/SEPIC2.png)
 
@@ -81,20 +81,9 @@ With the proposed modifications, the converter with which the project will be de
 
 
 
-##### Coupling Capacitor
-
-The Cx coupling capacitor must withstand the RMS current flowing through it.
-The KEMET A767KN566M1HLAE029 capacitor meets ESR, capacitance and near frequency requirements for implementation in the current drive.
-
-Its most important characteristics are: Assuming no ESR, the peak-to-peak voltage ripple in CX is derived from the current equation in a capacitor.
-
-
-
 ##### Input Capacitor
 
-In a SEPIC converter you have a triangular, continuous input current wave. So the inductor ensures that the input capacitor sees a relatively low current ripple, this input capacitor allows for less ripple fluctuation of voltage at the input, allowing it to stay close to the maximum power point and at the same time allowing the panel to be seen as an ideal source of voltage.
-
-To calculate the RMS current in the input capacitor we use the following equation:
+In a SEPIC converter, you have a triangular, continuous input current wave. So the inductor ensures that the input capacitor sees a relatively low current ripple, this input capacitor allows for less ripple fluctuation of voltage at the input, allowing it to stay close to the maximum power point and at the same time allowing the panel to be seen as an ideal source of voltage.
 
 
 
@@ -114,21 +103,21 @@ The output diode must be able to withstand the peak switching current and the re
 
 A Schottky diode is used to take advantage of its low forward voltage (VM = 475mV), speed and ability to minimize efficiency losses.
 
-The peak current passing through the diode is the same as the peak current of the drain mosfet. Peak Idrain = 3,003 A
+The peak current passing through the diode is the same as the peak current of the drain mosfet. Peak Idrain = 3,003A
 
 
 
 ##### Driver
 
-The IR2110 is in charge of sending a signal to the GATE of the MOSFET, replicating the switching signal to control the on and off of the latter. In our application we will only use 3 inputs to control the driveroutput: the logic supply voltage greater than 3 V (VDD), logic input to control the gate controller low output (LIN) and supply voltage (VCC). The IR2110 must deliver at its LO output the logical signal it receives from LIN with the amplitude of VCC. One of the advantages of this gate driver is that it allows to deliver a control signal (PWM) to the GATE with a voltage and current that the MOSFET needs to generate the commutation.
+The Diver is in charge of sending a signal to the GATE of the MOSFET, replicating the switching signal to control the on and off of the latter. In our application we will only use 3 inputs to control the driveroutput: the logic supply voltage greater than 3V (VDD), logic input to control the gate controller low output (LIN) and supply voltage (VCC). The Driver must deliver at its LO output the logical signal it receives from LIN with the amplitude of VCC. One of the advantages of this gate driver is that it allows to deliver a control signal (PWM) to the GATE with a voltage and current that the MOSFET needs to generate the commutation.
 
 
 
 ##### Source
 
-We decided to implement a regulated and isolated source to feed the experimental kit from Texas and unite both systems autonomously without the need for line power.
+We decided to implement a regulated and isolated source to feed both systems autonomously without the need for line power.
 
-We decided to use the DC-DC RS6-1205D converter which receives the battery output voltage (12V) filtered by an LC filter. This isolated, regulated and dual output source delivers ± 5 V and ± 600 mA with 85% efficiency.
+The converter receives the battery output voltage (12V) filtered by an LC filter. This isolated, regulated, and dual output source delivers ± 5V and ± 600mA with 85% efficiency.
 
 
 

@@ -1,7 +1,7 @@
 # Solar-panel-battery-charger
 
 
-
+'
 ## SUMMARY
 
 This Project contributes to the development of DC-DC converters for projects with a greater focus on the conversion of renewable energy. We decided to use and analyze the **SEPIC** converter in cars for advantages that this topology offers such as: the insulation between the panel and the storage system and the characteristic of handling lower, equal, or greater voltages than the panel, the latter allows the panel to be easily changed to work with the same battery, making it flexible to the inputs and outputs of the system. In this project we will make a laboratory prototype as the initial phase of a possible product that can be commercialized and, therefore, has the possibility of being the basis for the creation of a company or used in the electronic devices in cars.
@@ -132,40 +132,6 @@ We decided to use the DC-DC RS6-1205D converter which receives the battery outpu
 
 
 
-#####  Sensing Circuits
-
-The current and voltage signals of the SEPIC must be conditioned in order to be able to read and process them with the development card to control the useful cycle of the gate of the MOSFET. The card's ADC allows an analog input range between 0V and 3.3V. Inverter voltages are in the range of 0V - 22V and currents of 0A-3A.
-
-For the conditioning of the signals, the implementation of a non-inverting differential amplifier was chosen with the LM6142A rail-to-rail operational amplifier due to its effective slew rate (25 V / us) and output voltage limitation because it is rail- to-rail (Vcc = 3.3 V). This feature helps protect the development board. The differential amplifier topology and its equations are described below.
-
-
-
-##### Voltage Sensing
-
-![Image of V-Model](/images/sensed.png)
-
-The voltage entering the ADC of the development board is a function of the resistors RA, RB, V1 and V2 as follows:
-
-V<sub>ADC</sub> = (V1 - V2)(RB / RA)
-
-Precision resistors of 1% tolerance will be used for greater precision in taking measurements.
-
-
-
-##### Current Sensing
-
-![Image of V-Model](/images/sensed2.png)
-
-Figure (4.8). Differential amplifier to measure current. The voltage that enters the ADC of the development board is a function of the resistors RA, RB, V1 and V2 but in this case V1 and V2 represent the current variable that circulates with the ohm law of the following way:
-
-V<sub>ADC</sub> = (V1 - V2)(RB / RA) = IR<sub>SH</sub> (RB / RA)
-
-![Image of V-Model](/images/sensed3.png)
-
-In the table above, we can see the resolution of the measurement using precision resistances of 1%, in addition to taking into account that our  maximum measurement must be above the limit conditions of the converter to protect the card from spikes from voltages and currents.
-
-
-
 ## Control
 
 ##### PROGRAMMED PEAK CURRENT CONTROL WITH COMPENSATION RAMP (PCPM):
@@ -232,4 +198,4 @@ MPPT solar charge controller reduces complexity of system while output of system
 - Armando Ruben Villar Tovar				877990
 - Hamed Shoushtaridehshal                   878009 
 - Jaber Nikpouri                                         878189
-- Omar Elgendy                                         877989
+- 0
